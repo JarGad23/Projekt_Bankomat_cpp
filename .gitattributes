@@ -1,2 +1,5 @@
-* linguist-vendored
-src/*.cpp linguist-vendored=false
+sqlite3.c linguist-vendored
+sqlite3.h linguist-vendored
+
+*.cpp linguist-language=C++
+*.h linguist-language=C++
