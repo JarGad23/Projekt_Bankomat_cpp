@@ -1,7 +1,7 @@
-sqlite/* linguist-vendored
+# Ignoruj SQLite
+Project_demo/sqlite/*.c linguist-vendored
+Project_demo/sqlite/*.h linguist-vendored
 
-sqlite3.c linguist-vendored
-sqlite3.h linguist-vendored
-
-*.cpp linguist-language=C++
-*.h linguist-language=C++
+# Wymuś rozpoznanie C++
+Project_demo/*.cpp linguist-language=C++
+Project_demo/*.h linguist-language=C++
