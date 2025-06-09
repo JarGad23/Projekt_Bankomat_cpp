@@ -43,12 +43,16 @@ int main() {
                 std::cout << "Kwota wpłaty: "; std::cin >> kwota;
                 klient->konto->wplata(kwota);
                 db.zapiszTransakcje(id, "Wpłata", kwota);
+				db.aktualizujSaldo(id, klient->konto->saldo());
+                pauza();
             }
             else if (wybor == 2) {
                 double kwota;
                 std::cout << "Kwota wypłaty: "; std::cin >> kwota;
-                if (klient->konto->wyplata(kwota))
+                if (klient->konto->wyplata(kwota)) {
                     db.zapiszTransakcje(id, "Wypłata", kwota);
+				    db.aktualizujSaldo(id, klient->konto->saldo());
+                }
                 else std::cout << "Brak środków.\n";
                 pauza();
             }
