@@ -5,7 +5,7 @@
 
 class KontoOszczednosciowe : public KontoBankowe {
 private: 
-    int wyplatyWykonczone = 0;
+  int wyplatyWykonczone = 0;
 	const int limitWyplat = 3;
 	const double prowizja = 2.0;
 
@@ -15,7 +15,7 @@ public:
 			bool ok = KontoBankowe::wyplata(kwota);
 			if (ok) {
 				wyplatyWykonczone++;
-				std::cout << "Wyp³ata wykonana (" << wyplatyWykonczone << "/" << limitWyplat << ").\n";
+				std::cout << "WypÅ‚ata wykonana (" << wyplatyWykonczone << "/" << limitWyplat << ").\n";
 			}
 			return ok;
 		}
@@ -24,7 +24,7 @@ public:
 			bool ok = KontoBankowe::wyplata(razem);
 			if (ok) {
 				wyplatyWykonczone++;
-				std::cout << "Wyp³ata z prowizj¹ " << prowizja << " PLN (po limicie)\n";
+				std::cout << "WypÅ‚ata z prowizjÂ¹ " << prowizja << " PLN (po limicie)\n";
 			}
 			return ok;
 		}
