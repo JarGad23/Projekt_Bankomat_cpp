@@ -25,7 +25,7 @@ Klient* BazaDanych::zaloguj(int id, const std::string& pin) {
         std::string typ = (const char*)sqlite3_column_text(stmt, 2);
         double saldo = sqlite3_column_double(stmt, 3);
         sqlite3_finalize(stmt);
-
+        
         KontoBankowe* konto = (typ == "Premium") ? (KontoBankowe*)new KontoPremium()
             : (KontoBankowe*)new KontoOszczednosciowe();
         konto->ustawSaldo(saldo);
@@ -60,4 +60,14 @@ void BazaDanych::pokazHistorie(int klientId) {
         std::cout << "- " << typ << ": " << kwota << " PLN, " << data << "\n";
     }
     sqlite3_finalize(stmt);
+}
+
+void BazaDanych::aktualizujSaldo(int klientId, double noweSaldo) {
+	std::string sql = "UPDATE klienci SET saldo = ? WHERE id = ?";
+	sqlite3_stmt* stmt;
+	sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr);
+	sqlite3_bind_double(stmt, 1, noweSaldo);
+	sqlite3_bind_int(stmt, 2, klientId);
+	sqlite3_step(stmt);
+	sqlite3_finalize(stmt);
 }

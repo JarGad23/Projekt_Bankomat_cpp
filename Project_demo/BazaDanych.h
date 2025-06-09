@@ -10,6 +10,7 @@ public:
     Klient* zaloguj(int id, const std::string& pin);
     void zapiszTransakcje(int klientId, const std::string& typ, double kwota);
     void pokazHistorie(int klientId);
+    void aktualizujSaldo(int klientId, double noweSaldo);
 };
 
 #endif
