@@ -11,6 +11,7 @@ public:
     void zapiszTransakcje(int klientId, const std::string& typ, double kwota);
     void pokazHistorie(int klientId);
     void aktualizujSaldo(int klientId, double noweSaldo);
+    void dodajNowegoKlienta();
 };
 
 #endif
