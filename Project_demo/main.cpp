@@ -16,6 +16,18 @@ int main() {
         czyscEkran();
         wypiszNaglowek("SYMULATOR BANKOMATU");
 
+        std::cout << "[1] Logowanie\n[2] Nowe konto\n[3] Zakończ\n> ";
+        int wyborStart;
+        std::cin >> wyborStart;
+
+        if (wyborStart == 2) {
+            db.dodajNowegoKlienta();
+            continue;
+        }
+        else if (wyborStart == 3) {
+            break;
+        }
+
         int id;
         std::string pin;
         std::cout << "Podaj ID: ";

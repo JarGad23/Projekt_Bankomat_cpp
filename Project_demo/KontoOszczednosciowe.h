@@ -1,6 +1,7 @@
 #ifndef KONTOOSZCZEDNOSCIOWE_H
 #define KONTOOSZCZEDNOSCIOWE_H
 
+#include <locale.h>
 #include "KontoBankowe.h"
 
 class KontoOszczednosciowe : public KontoBankowe {
@@ -11,6 +12,7 @@ private:
 
 public:
 	bool wyplata(double kwota) override {
+		setlocale(LC_ALL, "Polish");
 		if (wyplatyWykonczone < limitWyplat) {
 			bool ok = KontoBankowe::wyplata(kwota);
 			if (ok) {
